@@ -1,0 +1,30 @@
+Dans le fichier corrigeAlignementLibelles_droite.js: 
+ligne 47 passer la valeur 62px à 160px
+ligne 52 passer la valeur 62px à 160 px
+
+
+Ce qui donne: 
+/* Mise en page spécifique du code INE */
+		var CODE_INE = $("#CODE_INE");
+		var form_fieldValue = $('.form_fieldValue', CODE_INE)[0];
+		var reg = new RegExp("Firefox", "i");
+		if (form_fieldValue != undefined) {
+			form_fieldValue.style.position = 'relative';
+			form_fieldValue.style.height = '2px';
+			if ($('#ucChpCODE_INE_Valeur_LinkCodeINE', form_fieldValue).length > 0)
+				$('#ucChpCODE_INE_Valeur_LinkCodeINE', form_fieldValue)[0].style.display = 'none';
+			if (navigator.appName != "Microsoft Internet Explorer") {
+				CODE_INE[0].style.height = '15px';				
+				if (navigator.userAgent.match(reg)) {
+					form_fieldValue.style.bottom = '13px';
+					form_fieldValue.style.left = '160px';
+				} else {
+					var table = $('table', form_fieldValue)[0];
+					if (table != undefined) {
+						table.style.position = 'relative';
+						table.style.bottom = '13px';
+						table.style.left = '160px';
+					}
+				}
+			}
+		}
